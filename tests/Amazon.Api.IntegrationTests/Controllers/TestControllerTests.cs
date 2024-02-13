@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Amazon.Api.Controllers;
+
+using Microsoft.AspNetCore.Mvc;
+
 using Xunit;
 
 namespace Amazon.Api.IntegrationTests.Controllers
