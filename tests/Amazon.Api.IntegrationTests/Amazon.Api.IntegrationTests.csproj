@@ -22,4 +22,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Amazon.Api\Amazon.Api.csproj" />
+  </ItemGroup>
+
 </Project>
