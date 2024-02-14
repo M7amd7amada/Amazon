@@ -1,12 +1,11 @@
-using Amazon.Api;
-
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 {
     builder.Services
-        .AddPresentation();
+        .AddPresentation()
+        .AddInfrastructure(builder.Configuration);
 }
 
-var app = builder.Build();
+WebApplication app = builder.Build();
 {
     if (app.Environment.IsDevelopment())
     {
@@ -15,6 +14,8 @@ var app = builder.Build();
     }
 
     app.UseHttpsRedirection();
+
+    app.UseAuthorization();
 
     app.MapControllers();
 
