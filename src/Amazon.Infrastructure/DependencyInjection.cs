@@ -1,3 +1,4 @@
+using Amazon.Infrastructure.Common.Middlewares;
 using Amazon.Infrastructure.Common.Settings;
 
 using Microsoft.Extensions.Configuration;
@@ -13,6 +14,9 @@ public static class DependencyInjection
     {
         services.Configure<AppSettingsOptions>
             (configuration.GetSection(AppSettingsOptions.AppSettings));
+
+        services.AddLogging();
+        services.AddTransient<GlobalExceptionHandlingMiddleware>();
 
         return services;
     }

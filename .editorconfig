@@ -425,5 +425,8 @@ dotnet_diagnostic.SA1615.severity = none
 # SA1009: Element return value should be documented
 dotnet_diagnostic.SA1009.severity = none
 
+# SA1009: Fix Spacing
+dotnet_diagnostic.SA1000.severity = none
+
 [**/Migrations/*]
 generated_code = true
