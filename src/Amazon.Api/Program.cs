@@ -1,3 +1,5 @@
+using Amazon.Infrastructure.Common.Middlewares;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 {
     builder.Services
@@ -17,17 +19,7 @@ WebApplication app = builder.Build();
 
     app.UseAuthorization();
 
-    app.Use(async (context, next) =>
-    {
-        try
-        {
-            await next(context);
-        }
-        catch
-        {
-            context.Response.StatusCode = 500;
-        }
-    });
+    app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
 
     app.MapControllers();
 
